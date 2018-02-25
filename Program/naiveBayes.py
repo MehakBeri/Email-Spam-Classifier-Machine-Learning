@@ -124,7 +124,9 @@ def countDocsInClass(D,c):
 this function applies multinomial naive bayes to test document located at location = d
 '''
 def applyMultinomialNB(C,v,prior,condProb,d, s_sum):
-    data=getText(d)
+    global count_spam_docs
+    global count_ham_docs
+    data=d
     score={}
     updateFromData= extractTokensFromDoc(v,data,condProb, s_sum)
     w = updateFromData[0]
@@ -133,18 +135,19 @@ def applyMultinomialNB(C,v,prior,condProb,d, s_sum):
         score[c] = math.log10(prior[c])
         for token in w:
             score[c] = score[c] + math.log10(smoothedCondProb[c+'.'+token])
-    print(score)
+    # print(score)
     if score['ham']>score['spam']:
-        print("The document belongs to class ham")
+        # print("The document belongs to class ham")
+        count_ham_docs = count_ham_docs + 1
     else:
-        print("The document belongs to class spam")
+        # print("The document belongs to class spam")
+        count_spam_docs = count_spam_docs + 1
 '''
 sub function of testing function called applyMultinomialNB
 '''
 def extractTokensFromDoc(v,data,condProb, s_sum):
     # result[0] is tokens obtained from splitting data
     vocabLen = len(v)
-    print("Total number of words in the vocabulary initially is: " + str(vocabLen))
     vocabData = set(data.split(" "))
     # result[1] is a dictionary containing smoothed cond prob for items having zero frequency in the vocabulary v
 
@@ -158,18 +161,40 @@ def extractTokensFromDoc(v,data,condProb, s_sum):
 
     return vocabData,condProb
 
+'''
+main function for testing of documents in a folder given by directory folder given by path
+'''
+def test_NB(C,res,path_folder):
+    global count_ham_docs
+    global count_spam_docs
+    D= getDocs(path_folder+'/ham', path_folder+'/spam')
+    #D[0] is a list of documents in folder ham, D[1] is a list of data of documents in folder spam
+    for doc in D[0]:
+     applyMultinomialNB(C,res[0],res[1],res[2],doc, res[3])
+    print('Accuracy for test set documents in ham folder: ' + str(count_ham_docs/ len(D[0])))
+    count_spam_docs = 0
+    count_ham_docs = 0
+    for doc in D[1]:
+      applyMultinomialNB(C, res[0], res[1], res[2],doc, res[3])
+    print('Accuracy for test set documents in spam folder: ' + str(count_spam_docs / len(D[1])))
+
 if __name__== '__main__':
-    path_train_ham = '../dataSet1/train/ham'    
-    path_train_spam= '../dataSet1/train/spam'
+    path_train_ham = '../dataSet2/train/ham'
+    path_train_spam= '../dataSet2/train/spam'
+    count_spam_docs=0
+    count_ham_docs=0
     D= getDocs(path_train_ham, path_train_spam)
     C=['ham','spam']
     res=TrainMultinomialNB(C,D)
+    # print('=======================conditional_probability=========================')
+    # print(res[2])
 # res[0]=vocab; res[1]=prior; res[2]=condProb; res[3]=denominator of ham and spam
-    path_test_doc = '../dataSet1/test/spam/0359.2004-02-04.GP.spam.txt'
-    applyMultinomialNB(C,res[0],res[1],res[2],path_test_doc, res[3])
+    path_test_folder = '../dataSet2/test'
+    test_NB(C,res,path_test_folder)
+    # applyMultinomialNB(C,res[0],res[1],res[2],path_test_doc, res[3])
+
 #    print(res[0])
 #    print('=======================prior=========================')
 #    print(res[1])
-#    print('=======================conditional_probability=========================')
-#    print(res[2])
+
    
