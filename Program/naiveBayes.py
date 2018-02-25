@@ -6,7 +6,7 @@ Created on Fri Feb 23 21:30:42 2018
 """
 
 import os
-
+import math
 '''
 getDocs function gets the documents inside the directories specified by hamPath and spamPath
 '''
@@ -32,6 +32,7 @@ def getText(filename):
         data=myfile.read().replace('\n', ' ')
     return data
 
+
 '''
 TrainMultinomialNB trains a machine learning model using the given training data specified as document tuple D, where D[0] is ham, and D[1] is spam, and classes are specified in class C
 '''
@@ -42,6 +43,7 @@ def TrainMultinomialNB(C,D):
     text={}
     t={}
     condProb={}
+    s_sum={}
     for c in C:
         Nc = countDocsInClass(D,c)
         prior[c]= Nc/n
@@ -51,9 +53,10 @@ def TrainMultinomialNB(C,D):
             t[c+'.'+token]=CountTokensOfTerm(text[c],token)
             s=s+CountTokensOfTerm(text[c],token)
         denominator = findSmoothedSum(v,c,t)
+        s_sum[c]=denominator
         for token in v:
             condProb[c+'.'+token] = (t[c+'.'+token]+1)/denominator
-    return v, prior, condProb
+    return v, prior, condProb, s_sum
 
 '''
 CountTokensOfTerm function counts the frequency of occurence of a given token in a given text
@@ -117,15 +120,56 @@ def countDocsInClass(D,c):
     else:
         return len(D[1])
 
+'''
+this function applies multinomial naive bayes to test document located at location = d
+'''
+def applyMultinomialNB(C,v,prior,condProb,d, s_sum):
+    data=getText(d)
+    score={}
+    updateFromData= extractTokensFromDoc(v,data,condProb, s_sum)
+    w = updateFromData[0]
+    smoothedCondProb = updateFromData[1]
+    for c in C:
+        score[c] = math.log10(prior[c])
+        for token in w:
+            score[c] = score[c] + math.log10(smoothedCondProb[c+'.'+token])
+    print(score)
+    if score['ham']>score['spam']:
+        print("The document belongs to class ham")
+    else:
+        print("The document belongs to class spam")
+'''
+sub function of testing function called applyMultinomialNB
+'''
+def extractTokensFromDoc(v,data,condProb, s_sum):
+    # result[0] is tokens obtained from splitting data
+    vocabLen = len(v)
+    print("Total number of words in the vocabulary initially is: " + str(vocabLen))
+    vocabData = set(data.split(" "))
+    # result[1] is a dictionary containing smoothed cond prob for items having zero frequency in the vocabulary v
+
+    for token in vocabData:
+        token_ham= 'ham.'+token
+        token_spam = 'spam.'+token
+        if token_ham not in condProb.keys():
+            condProb[token_ham]= 1/(s_sum['ham'] + vocabLen)
+        if token_spam not in condProb.keys():
+            condProb[token_spam]= 1/(s_sum['spam'] + vocabLen)
+
+    return vocabData,condProb
+
 if __name__== '__main__':
     path_train_ham = '../dataSet1/train/ham'    
     path_train_spam= '../dataSet1/train/spam'
     D= getDocs(path_train_ham, path_train_spam)
     C=['ham','spam']
     res=TrainMultinomialNB(C,D)
+# res[0]=vocab; res[1]=prior; res[2]=condProb; res[3]=denominator of ham and spam
+    path_test_doc = '../dataSet1/test/spam/0359.2004-02-04.GP.spam.txt'
+    applyMultinomialNB(C,res[0],res[1],res[2],path_test_doc, res[3])
 #    print(res[0])
-    print('=======================prior=========================')
-    print(res[1])
-    print('=======================conditional_probability=========================')
-    print(res[2])
+#    print('=======================prior=========================')
+#    print(res[1])
+#    print('=======================conditional_probability=========================')
+#    print(res[2])
    
