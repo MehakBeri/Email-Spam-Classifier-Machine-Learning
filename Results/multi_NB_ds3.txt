@@ -1,0 +1,2 @@
+Accuracy for test set documents in ham folder: 92.76315789473685%
+Accuracy for test set documents in spam folder: 88.49104859335038%

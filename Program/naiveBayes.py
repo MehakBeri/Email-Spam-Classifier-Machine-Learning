@@ -171,30 +171,31 @@ def test_NB(C,res,path_folder):
     #D[0] is a list of documents in folder ham, D[1] is a list of data of documents in folder spam
     for doc in D[0]:
      applyMultinomialNB(C,res[0],res[1],res[2],doc, res[3])
-    print('Accuracy for test set documents in ham folder: ' + str(count_ham_docs/ len(D[0])))
+    print('Accuracy for test set documents in ham folder: ' + str((count_ham_docs/ len(D[0]))*100) +"%")
     count_spam_docs = 0
     count_ham_docs = 0
     for doc in D[1]:
       applyMultinomialNB(C, res[0], res[1], res[2],doc, res[3])
-    print('Accuracy for test set documents in spam folder: ' + str(count_spam_docs / len(D[1])))
+    print('Accuracy for test set documents in spam folder: ' + str((count_spam_docs/ len(D[1]))*100) +"%")
 
 if __name__== '__main__':
-    path_train_ham = '../dataSet2/train/ham'
-    path_train_spam= '../dataSet2/train/spam'
+    dataset='3'
+    path_train_ham = '../dataSet'+dataset+'/train/ham'
+    path_train_spam= '../dataSet'+dataset+'/train/spam'
     count_spam_docs=0
     count_ham_docs=0
     D= getDocs(path_train_ham, path_train_spam)
     C=['ham','spam']
     res=TrainMultinomialNB(C,D)
+    path_test_folder = '../dataSet'+dataset+'/test'
+    test_NB(C,res,path_test_folder)
+
     # print('=======================conditional_probability=========================')
     # print(res[2])
-# res[0]=vocab; res[1]=prior; res[2]=condProb; res[3]=denominator of ham and spam
-    path_test_folder = '../dataSet2/test'
-    test_NB(C,res,path_test_folder)
+    # res[0]=vocab; res[1]=prior; res[2]=condProb; res[3]=denominator of ham and spam
+
     # applyMultinomialNB(C,res[0],res[1],res[2],path_test_doc, res[3])
+    #    print(res[0])
+    #    print('=======================prior=========================')
+    #    print(res[1])
 
-#    print(res[0])
-#    print('=======================prior=========================')
-#    print(res[1])
-
-   

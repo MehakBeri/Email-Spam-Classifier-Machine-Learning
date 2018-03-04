@@ -1,0 +1,67 @@
+Testing on validation training set 1 with a chosen value of iterations as 50
+Value of iteration: 50
+Accuracy on given set is: 93.5251798561151%; Accuracy on ham: 0.9509803921568627 ; Accuracy on spam: 0.8918918918918919
+Testing on validation training set 1 with a chosen value of iterations as 100
+Value of iteration: 100
+Accuracy on given set is: 93.5251798561151%; Accuracy on ham: 0.9509803921568627 ; Accuracy on spam: 0.8918918918918919
+Testing on validation training set 1 with a chosen value of iterations as 150
+Value of iteration: 150
+Accuracy on given set is: 93.5251798561151%; Accuracy on ham: 0.9509803921568627 ; Accuracy on spam: 0.8918918918918919
+Testing on validation training set 1 with a chosen value of iterations as 200
+Value of iteration: 200
+Accuracy on given set is: 93.5251798561151%; Accuracy on ham: 0.9509803921568627 ; Accuracy on spam: 0.8918918918918919
+
+Testing on validation training set 1 with a chosen value of iterations as 1
+Value of iteration: 1
+Accuracy on given set is: 26.618705035971225%; Accuracy on ham: 0.0 ; Accuracy on spam: 1.0
+Testing on validation training set 1 with a chosen value of iterations as 51
+Value of iteration: 51
+Accuracy on given set is: 94.24460431654677%; Accuracy on ham: 0.9607843137254902 ; Accuracy on spam: 0.8918918918918919
+Testing on validation training set 1 with a chosen value of iterations as 101
+Value of iteration: 101
+Accuracy on given set is: 94.24460431654677%; Accuracy on ham: 0.9607843137254902 ; Accuracy on spam: 0.8918918918918919
+Testing on validation training set 1 with a chosen value of iterations as 151
+Value of iteration: 151
+Accuracy on given set is: 94.24460431654677%; Accuracy on ham: 0.9607843137254902 ; Accuracy on spam: 0.8918918918918919
+
+Testing on validation training set 1 with a chosen value of iterations as 1
+Value of iteration: 1
+Accuracy on given set is: 26.618705035971225%; Accuracy on ham: 0.0 ; Accuracy on spam: 1.0
+Testing on validation training set 1 with a chosen value of iterations as 11
+Value of iteration: 11
+Accuracy on given set is: 53.23741007194245%; Accuracy on ham: 0.3627450980392157 ; Accuracy on spam: 1.0
+Testing on validation training set 1 with a chosen value of iterations as 31
+Value of iteration: 31
+Accuracy on given set is: 90.64748201438849%; Accuracy on ham: 0.9117647058823529 ; Accuracy on spam: 0.8918918918918919
+Testing on validation training set 1 with a chosen value of iterations as 51
+Value of iteration: 51
+Accuracy on given set is: 90.64748201438849%; Accuracy on ham: 0.9117647058823529 ; Accuracy on spam: 0.8918918918918919
+
+Testing on validation training set 1 with a chosen value of iterations as 1
+Value of iteration: 1
+Accuracy on given set is: 26.618705035971225%; Accuracy on ham: 0.0 ; Accuracy on spam: 1.0
+Testing on validation training set 1 with a chosen value of iterations as 21
+Value of iteration: 21
+Accuracy on given set is: 91.36690647482014%; Accuracy on ham: 0.9215686274509803 ; Accuracy on spam: 0.8918918918918919
+Testing on validation training set 1 with a chosen value of iterations as 41
+Value of iteration: 41
+Accuracy on given set is: 89.92805755395683%; Accuracy on ham: 0.8921568627450981 ; Accuracy on spam: 0.918918918918919
+Testing on validation training set 1 with a chosen value of iterations as 91
+Value of iteration: 91
+Accuracy on given set is: 89.92805755395683%; Accuracy on ham: 0.8921568627450981 ; Accuracy on spam: 0.918918918918919
+
+
+
+
+===============================
+Testing on full training set 1 with a chosen value of iterations as 151
+Value of iteration: 151
+Accuracy on given set is: 92.46861924686193%; Accuracy on ham: 0.9080459770114943 ; Accuracy on spam: 0.9692307692307692
+
+Testing on full training set 2 with a chosen value of iterations as 151
+Value of iteration: 151
+Accuracy on given set is: 75.87719298245614%; Accuracy on ham: 0.6872964169381107 ; Accuracy on spam: 0.9060402684563759
+
+Testing on full training set 3 with a chosen value of iterations as 151
+Value of iteration: 151
+Accuracy on given set is: 95.39594843462247%; Accuracy on ham: 0.9210526315789473 ; Accuracy on spam: 0.9667519181585678

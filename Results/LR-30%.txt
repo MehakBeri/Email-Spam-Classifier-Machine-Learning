@@ -1,0 +1,149 @@
+Testing on 30% validation data
+Value of lambda: 0
+Accuracy on given set is: 8.585055643879173%
+Value of lambda: 10
+Accuracy on given set is: 12.7715951245363%
+Value of lambda: 50
+Accuracy on given set is: 37.83783783783784%
+Value of lambda: 100
+Accuracy on given set is: 72.97297297297297%
+Value of lambda: 200
+Accuracy on given set is: 97.08532061473238%
+
+Accuracy on given set is: 102.72919978802332%; Accuracy on ham: 0.8921568627450981 ; Accuracy on spam: 0.13513513513513514
+
+lambda:250
+Accuracy on given set is: 103.4181240063593%; Accuracy on ham: 0.08823529411764706 ; Accuracy on spam: 0.9459459459459459
+
+lambda:300
+Accuracy on given set is: 116.64016958134607%; Accuracy on ham: 0.27450980392156865 ; Accuracy on spam: 0.8918918918918919
+
+lambda:200- 77%
+lambda : 400- 33%
+lambda 600- 33%
+
+==============================================================================================================================================
+
+
+
+
+
+
+Value of lambda: 0
+Accuracy on given set is: 4.316546762589928%; Accuracy on ham: 0.049019607843137254 ; Accuracy on spam: 0.02702702702702703
+
+Value of lambda: 0.1
+Accuracy on given set is: 4.316546762589928%; Accuracy on ham: 0.049019607843137254 ; Accuracy on spam: 0.02702702702702703
+
+Value of lambda: 10
+Accuracy on given set is: 4.316546762589928%; Accuracy on ham: 0.0196078431372549 ; Accuracy on spam: 0.10810810810810811
+
+Value of lambda: 70
+Accuracy on given set is: 12.949640287769784%; Accuracy on ham: 0.0 ; Accuracy on spam: 0.4864864864864865
+
+Value of lambda: 100
+Accuracy on given set is: 19.424460431654676%; Accuracy on ham: 0.0 ; Accuracy on spam: 0.7297297297297297
+
+Value of lambda: 150
+Accuracy on given set is: 21.58273381294964%; Accuracy on ham: 0.0 ; Accuracy on spam: 0.8108108108108109
+
+Value of lambda: 170
+Accuracy on given set is: 31.654676258992804%; Accuracy on ham: 0.16666666666666666 ; Accuracy on spam: 0.7297297297297297
+
+Value of lambda: 190
+Accuracy on given set is: 52.51798561151079%; Accuracy on ham: 0.5294117647058824 ; Accuracy on spam: 0.5135135135135135
+
+Value of lambda: 195
+Accuracy on given set is: 30.215827338129497%; Accuracy on ham: 0.13725490196078433 ; Accuracy on spam: 0.7567567567567568
+
+Value of lambda: 200
+Accuracy on given set is: 73.38129496402878%; Accuracy on ham: 1.0 ; Accuracy on spam: 0.0
+
+Value of lambda: 205
+Accuracy on given set is: 64.02877697841727%; Accuracy on ham: 0.7450980392156863 ; Accuracy on spam: 0.35135135135135137
+
+Value of lambda: 210
+Accuracy on given set is: 47.482014388489205%; Accuracy on ham: 0.37254901960784315 ; Accuracy on spam: 0.7567567567567568
+
+Value of lambda: 220
+Accuracy on given set is: 55.39568345323741%; Accuracy on ham: 0.5686274509803921 ; Accuracy on spam: 0.5135135135135135
+
+Value of lambda: 230
+Accuracy on given set is: 59.71223021582733%; Accuracy on ham: 0.5784313725490197 ; Accuracy on spam: 0.6486486486486487
+
+Value of lambda: 250
+Accuracy on given set is: 34.53237410071942%; Accuracy on ham: 0.13725490196078433 ; Accuracy on spam: 0.918918918918919
+
+Value of lambda: 300
+Accuracy on given set is: 35.97122302158273%; Accuracy on ham: 0.12745098039215685 ; Accuracy on spam: 1.0
+
+Value of lambda: 405
+Accuracy on given set is: 36.69064748201439%; Accuracy on ham: 0.14705882352941177 ; Accuracy on spam: 0.972972972972973
+
+===============================================================================================================================================
+Testing on full training set 1 with a chosen value of lambda as 200
+Value of lambda: 200
+Accuracy on given set is: 37.44769874476987%; Accuracy on ham: 0.26436781609195403 ; Accuracy on spam: 0.6692307692307692
+
+Testing on full training set 1 with a chosen value of lambda as 230
+Value of lambda: 230
+Accuracy on given set is: 50.0%; Accuracy on ham: 0.3879310344827586 ; Accuracy on spam: 0.8
+Testing on full training set 1 with a chosen value of lambda as 207
+Value of lambda: 207
+Accuracy on given set is: 69.24686192468619%; Accuracy on ham: 0.7959770114942529 ; Accuracy on spam: 0.4153846153846154
+
+*500*
+Testing on full training set 1 with a chosen value of lambda as 230
+Value of lambda: 230
+Accuracy on given set is: 58.36820083682008%; Accuracy on ham: 0.5344827586206896 ; Accuracy on spam: 0.7153846153846154
+
+================================================================================================================================================
+
+SET2
+Value of lambda: 100
+Accuracy on given set is: 31.359649122807014%; Accuracy on ham: 0.003257328990228013 ; Accuracy on spam: 0.9530201342281879
+
+Testing on full training set 2 with a chosen value of lambda as 200
+Value of lambda: 200
+Accuracy on given set is: 35.30701754385965%; Accuracy on ham: 0.23127035830618892 ; Accuracy on spam: 0.6040268456375839
+
+Testing on full training set 2 with a chosen value of lambda as 207
+Value of lambda: 207
+Accuracy on given set is: 65.5701754385965%; Accuracy on ham: 0.758957654723127 ; Accuracy on spam: 0.4429530201342282
+
+Testing on full training set 2 with a chosen value of lambda as 205
+Value of lambda: 205
+Accuracy on given set is: 54.824561403508774%; Accuracy on ham: 0.5765472312703583 ; Accuracy on spam: 0.4899328859060403
+
+** with 500 iterations **
+Testing on full training set 2 with a chosen value of lambda as 230
+Value of lambda: 230
+Accuracy on given set is: 63.81578947368421%; Accuracy on ham: 0.6384364820846905 ; Accuracy on spam: 0.6375838926174496
+
+Testing on full training set 2 with a chosen value of lambda as 205
+Value of lambda: 205
+Accuracy on given set is: 46.49122807017544%; Accuracy on ham: 0.39087947882736157 ; Accuracy on spam: 0.6174496644295302
+
+======================================================================
+
+FINAL:
+
+SET 1: 100 ITER
+
+Testing on full training set 1 with a chosen value of lambda as 207
+Value of lambda: 207
+Accuracy on given set is: 69.24686192468619%; Accuracy on ham: 0.7959770114942529 ; Accuracy on spam: 0.4153846153846154
+
+SET2: 100 ITER
+
+Testing on full training set 2 with a chosen value of lambda as 207
+Value of lambda: 207
+Accuracy on given set is: 65.5701754385965%; Accuracy on ham: 0.758957654723127 ; Accuracy on spam: 0.4429530201342282
+
+
+SET3: 100 ITER
+
+Testing on full training set 3 with a chosen value of lambda as 207
+Value of lambda: 207
+Accuracy on given set is: 63.72007366482505%; Accuracy on ham: 0.2894736842105263 ; Accuracy on spam: 0.7723785166240409
+
