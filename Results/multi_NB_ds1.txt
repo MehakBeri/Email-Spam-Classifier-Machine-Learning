@@ -959,7 +959,13 @@ The document belongs to class spam
 {'ham': -96.50098689492782, 'spam': -93.01624006215708}
 The document belongs to class spam
 Accuracy for test set documents in spam folder: 0.9923076923076923
+total: 130
+#= 129
 
 Accuracy for test set documents in ham folder: 0.9310344827586207
+total: 348
+# 324
+
+acc = 453/478= 94.76%
 
 Process finished with exit code 0

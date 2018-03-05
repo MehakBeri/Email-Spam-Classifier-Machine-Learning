@@ -50,16 +50,22 @@ returns a weight vector; L is lambda for regularization
 def estimateWeights(ham,spam,L):
     global V
     ham_data=getDocs(ham)
-    ham_set= set(ham_data[0].split(" "))
+    data=set()
+    for iter in range(len(ham_data)):
+        ham_set = set(ham_data[iter].split(" "))
+        data=data.union(ham_set)
     spam_data=getDocs(spam)
-    spam_set= set(spam_data[0].split(" "))
-    data= ham_set.union(spam_set)
+    for iter2 in range(len(spam_data)):
+        spam_set = set(spam_data[iter2].split(" "))
+        data = data.union(spam_set)
     V = getVocab(data) #list of unique words in traning set=ham n spam
+    print(V)
     W = [0 for i in range(len(V))] #corresponding weights, beginning with initial weights of zero
     X_ham = getBoolForDoc(ham)
     X_spam = getBoolForDoc(spam)
     n=0.01 #take initial step size as 0.01
-    for iteration in range(100):
+    for iteration in range(5):
+        print("...........................................................................................................................................................................................................")
         for i in range(len(W)):
              sumOverL=0
              # for docs in ham folder
@@ -73,6 +79,8 @@ def estimateWeights(ham,spam,L):
              for k in range(rows):
                  sumOverL= sumOverL + ((X_spam[k][i])*(y-condProb(1,X_spam,W,k)))
              W[i] = W[i] + (n*sumOverL) - (n*L*W[i])
+             print(i)
+             print(W[i])
     return W
 
 '''
@@ -109,6 +117,8 @@ tests accuracy on test set using W and L values along with data
 def test(train_ham,train_spam,ham,spam,L):
     print("Value of lambda: "+str(L))
     W = estimateWeights(train_ham, train_spam, L)
+    print("========================================================================================================")
+    print(W)
     global V
     X_ham = getBoolForDoc(ham)
     X_spam = getBoolForDoc(spam)
@@ -127,10 +137,11 @@ def test(train_ham,train_spam,ham,spam,L):
         if sum_spam<0:
             spam_i=spam_i+1
     accuracy = ((ham_i+spam_i)/(len(X_ham)+len(X_spam)))*100
+    print("================================================================================================================================================")
     print("Accuracy on given set is: "+str(accuracy)+"%"+"; Accuracy on ham: "+str((ham_i/len(X_ham))) +" ; Accuracy on spam: "+str((spam_i/len(X_spam))))
 
 if __name__== '__main__':
-    dataset='3'
+    dataset='1'
     train_ham='../DataSetLR/dataSet'+dataset+'/train/ham70'
     validation_ham='../DataSetLR/dataSet'+dataset+'/train/ham30'
     full_train_ham='../dataSet'+dataset+'/train/ham'
@@ -144,11 +155,11 @@ if __name__== '__main__':
     # W=estimateWeights(train_ham,train_spam,0)
     # print("Estimating weights without regularization on 70% training data")
     # print(W)
-    # print("Testing on 30% validation data")
-    # test(train_ham, train_spam, validation_ham, validation_spam, 195)
-    # test(train_ham, train_spam, validation_ham, validation_spam, 300)
-    # test(train_ham, train_spam, validation_ham, validation_spam, 405)
+    print("Testing on 30% validation data")
+    test(train_ham, train_spam, validation_ham, validation_spam, 0.1)
+    test(train_ham, train_spam, validation_ham, validation_spam, 10)
+    test(train_ham, train_spam, validation_ham, validation_spam, 40)
     # print("Testing on full training set "+dataset+" with a chosen value of lambda as 230")
     # test(full_train_ham,full_train_spam,test_ham,test_spam,230)
-    print("Testing on full training set "+dataset+" with a chosen value of lambda as 207")
-    test(full_train_ham,full_train_spam,test_ham,test_spam,207)
+    # print("Testing on full training set "+dataset+" with a chosen value of lambda as 207")
+    # test(full_train_ham,full_train_spam,test_ham,test_spam,207)

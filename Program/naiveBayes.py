@@ -177,6 +177,8 @@ def test_NB(C,res,path_folder):
     for doc in D[1]:
       applyMultinomialNB(C, res[0], res[1], res[2],doc, res[3])
     print('Accuracy for test set documents in spam folder: ' + str((count_spam_docs/ len(D[1]))*100) +"%")
+    accuracy = ((count_ham_docs/ len(D[0])) + (count_spam_docs/ len(D[1])) ) * 100
+    print("The accuracy is: "+ str(accuracy))
 
 if __name__== '__main__':
     dataset='3'
